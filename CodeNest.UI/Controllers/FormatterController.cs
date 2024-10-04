@@ -1,4 +1,15 @@
-﻿using CodeNest.BLL.Repositories;
+﻿// ***********************************************************************************************
+//
+//  (c) Copyright 2023, Computer Task Group, Inc. (CTG)
+//
+//  This software is licensed under a commercial license agreement. For the full copyright and
+//  license information, please contact CTG for more information.
+//
+//  Description: Sample Description.
+//
+// ***********************************************************************************************
+
+using CodeNest.BLL.Repositories;
 using CodeNest.DTO.Models.XmlModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,19 +37,6 @@ namespace CodeNest.UI.Controllers
             }
             ViewBag.ErrorMessage = result.Message;
             return View(result.JsonDto);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> FormatXml(XmlModel xmlModel)
-        {
-            XmlValidation result = await _formatterServices.XmlValidate(xmlModel.XmlInput);
-            if (result.IsValid)
-            {
-                ViewBag.Success = result.Message;
-                return View(result.XmlDto);
-            }
-            ViewBag.ErrorMessage = result.Message;
-            return View(result.XmlDto);
         }
     }
 }

@@ -9,23 +9,18 @@
 //
 // ***********************************************************************************************
 
-using CodeNest.DTO.CommonDto;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace CodeNest.DTO.Models
+namespace CodeNest.DTO.CommonDto
 {
-    public class HtmlDto : AuditDto
+    public class AuditDto
     {
-        [BsonId]
-        [BsonElement("_id"), BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId Id { get; set; }
-        public string? Name { get; set; }
-        public string? HtmlInput { get; set; }
-        public string? HtmlOutput { get; set; }
-
         [BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId? Workspaces { get; set; }
-        public string? Version { get; set; }
+        public ObjectId? CreatedBy { get; set; }
+        public DateTime CreatedOn { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId? ModifiedBy { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }

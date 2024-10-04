@@ -15,14 +15,14 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace CodeNest.DTO.Models
 {
-    public class HtmlDto : AuditDto
+    public class XmlDto : AuditDto
     {
         [BsonId]
         [BsonElement("_id"), BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId Id { get; set; }
+        public string Id { get; set; } = string.Empty;
         public string? Name { get; set; }
-        public string? HtmlInput { get; set; }
-        public string? HtmlOutput { get; set; }
+        public string? XmlInput { get; set; }
+        public string? XmlOutput { get; set; }
 
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId? Workspaces { get; set; }

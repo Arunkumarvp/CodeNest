@@ -20,17 +20,17 @@ using System.Threading.Tasks;
 
 namespace CodeNest.DTO.Models.XmlModel
 {
-    public class XmlModel 
+    public class CustomXml : Audit
     {
-        public int NodeCount;
-
+        [BsonId]
+        [BsonElement("_id"), BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId Id { get; set; }
+        [BsonElement("Name")]
         public string? Name { get; set; }
-
         public string? XmlInput { get; set; }
-
-        public string? BeautifiedXml { get; set; }
-
-        public string? WorkSpaceId { get; set; }
+        public string? XmlOutput { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Workspaces { get; set; }
         public string? Version { get; set; }
     }
 }
