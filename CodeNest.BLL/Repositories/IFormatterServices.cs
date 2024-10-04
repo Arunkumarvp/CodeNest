@@ -1,4 +1,5 @@
 ﻿using CodeNest.DTO.Models;
+using CodeNest.DTO.Models.XmlModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,12 @@ namespace CodeNest.BLL.Repositories
 {
      public interface IFormatterServices 
     {
-        Task<ValidationDto> JsonValidate(string jsonObject);
+        #region 
+        Task<ValidationDto> JsonValidate(string jsonObject); 
+        #endregion
+        Task<XmlValidation> XmlValidate(string XmlObject);
+
+        
+
     }
 }

@@ -23,14 +23,14 @@ namespace CodeNest.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Validate(string JsonInput)
         {
-            var result = await _jsonService.Validate(JsonInput);
+            ValidationDto result = await _jsonService.Validate(JsonInput);
             if (result.IsValid)
             {
                 ViewBag.Success = result.Message;
-                return View(result.jsonDto);
+                return View(result.JsonDto);
             }
             ViewBag.ErrorMessage = result.Message;
-            return View(result.jsonDto);
+            return View(result.JsonDto);
         }
     }
 }

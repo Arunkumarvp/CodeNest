@@ -1,4 +1,5 @@
 ﻿using CodeNest.DAL.Models;
+using CodeNest.DTO.Models.XmlModel;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 
@@ -23,7 +24,8 @@ namespace CodeNest.DAL.Context
         public IMongoCollection<CustomJavascript> JavaScript => _database.GetCollection<CustomJavascript>("javascript");
         public IMongoCollection<CustomJson> Json => _database.GetCollection<CustomJson>("json");
         public IMongoCollection<Jwt> Jwt => _database.GetCollection<Jwt>("jwt");
-        public IMongoCollection<CustomXml> Xml => _database.GetCollection<CustomXml>("xml");
+        public IMongoCollection<XmlDataModel> Xml => _database.GetCollection<XmlDataModel>("Xml_Data");
         public IMongoCollection<Workspaces> WorkSpaces => _database.GetCollection<Workspaces>("workspaces");
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CodeNest.DAL.Models;
 using CodeNest.DTO.Models;
+using CodeNest.DTO.Models.XmlModel;
 
 namespace CodeNest.BLL.AutoMapper
 {
@@ -16,7 +17,7 @@ namespace CodeNest.BLL.AutoMapper
             CreateMap<CustomHtml, HtmlDto>().ReverseMap();
             CreateMap<CustomJavascript, JavascriptDto>().ReverseMap();
             CreateMap<Jwt, JwtDto>().ReverseMap();
-            CreateMap<CustomXml, XmlDto>().ReverseMap();
+            CreateMap<XmlDataModel, XmlModel>().ReverseMap();
         }
     }
 }

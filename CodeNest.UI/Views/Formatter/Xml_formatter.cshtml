@@ -1,0 +1,44 @@
+﻿<div class="container-fluid text-center">
+    <div class="card">
+        <div class="card-header">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="FormatXml">
+            <div class="row">
+                <!-- Input XML Data Column -->
+                <div class="col-5">
+                    <h5>Input XML</h5>
+                    <textarea id="inputXml" rows="10" class="form-control" placeholder="Enter XML data"></textarea>
+                </div>
+
+                <!-- Transform Button Column -->
+                <div class="col-2">
+                    <h5>Actions</h5>
+                        <button id="transformBtn" type="submit" class="btn btn-primary">Transform</button>
+                </div>
+
+                <!-- Formatter XML Data Column -->
+                <div class="col-5">
+                    <h5>Formatted XML</h5>
+                    <textarea id="formattedXml" rows="10" class="form-control" readonly placeholder="Formatted XML will appear here"></textarea>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+

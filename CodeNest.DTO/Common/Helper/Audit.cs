@@ -9,21 +9,24 @@
 //
 // ***********************************************************************************************
 
-using CodeNest.DAL.Common;
-using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CodeNest.DAL.Models
+namespace CodeNest.DTO.Common.Helper
 {
-    public class CustomXml:Audit
+    public class Audit
     {
-        [BsonId]
-        [BsonElement("_id"), BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; } = string.Empty;
-        public string XmlInput { get; set; }
-        public string XmlOutput { get; set; }
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Workspaces { get; set; }
-        public string Version { get; set; }
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public string? CreatedBy { get; set; }
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
+        public DateTime UpdateedAt { get; set; } = DateTime.UtcNow;
+
+        public string? UpdatedBy { get; set; }
     }
 }

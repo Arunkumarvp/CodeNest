@@ -1,4 +1,5 @@
 ﻿using CodeNest.BLL.Repositories;
+using CodeNest.DTO.Models.XmlModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeNest.UI.Controllers
@@ -12,6 +13,8 @@ namespace CodeNest.UI.Controllers
         }
         public IActionResult JsonFormatter() => View();
 
+        public IActionResult Xml_formatter() => View();
+
         [HttpPost]
         public async Task<IActionResult> Validate(string JsonInput)
         {
@@ -19,10 +22,23 @@ namespace CodeNest.UI.Controllers
             if (result.IsValid)
             {
                 ViewBag.Success = result.Message;
-                return View(result.jsonDto);
+                return View(result.JsonDto);
             }
             ViewBag.ErrorMessage = result.Message;
-            return View(result.jsonDto);
+            return View(result.JsonDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> FormatXml(XmlModel xmlModel)
+        {
+            XmlValidation result = await _formatterServices.XmlValidate(xmlModel.XmlInput);
+            if (result.IsValid)
+            {
+                ViewBag.Success = result.Message;
+                return View(result.XmlDto);
+            }
+            ViewBag.ErrorMessage = result.Message;
+            return View(result.XmlDto);
         }
     }
 }

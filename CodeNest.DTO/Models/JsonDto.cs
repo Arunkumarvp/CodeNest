@@ -21,7 +21,5 @@ namespace CodeNest.DTO.Models
         public string Workspaces { get; set; }
 
         public string Version { get; set; }
-
-
     }
 }

@@ -30,7 +30,7 @@ namespace CodeNest.BLL.Service
                     {
                         IsValid = true,
                         Message = "Valid JSON",
-                        jsonDto = new JsonDto
+                        JsonDto = new JsonDto
                         {
                             JsonInput = jsonObject,
                             JsonOutput = beautifiedJson
@@ -43,7 +43,7 @@ namespace CodeNest.BLL.Service
                     {
                         IsValid = false,
                         Message = ex.ToString(),
-                        jsonDto = new JsonDto
+                        JsonDto = new JsonDto
                         {
                             JsonInput = jsonObject
                         }
@@ -56,7 +56,7 @@ namespace CodeNest.BLL.Service
                 {
                     IsValid = false,
                     Message = "Not a Valid Json",
-                    jsonDto = new JsonDto
+                    JsonDto = new JsonDto
                     {
                         JsonInput = jsonObject
                     }

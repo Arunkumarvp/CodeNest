@@ -1,10 +1,11 @@
+@model CodeNest.DTO.Models.UsersDto
 @{
   Layout = "_BlankLayout";
   ViewData["Title"] = "Register Basic - Pages";
 }
 
 @section PageStyles {
-<link rel="stylesheet" href="~/vendor/css/pages/page-auth.css">
+  <link rel="stylesheet" href="~/vendor/css/pages/page-auth.css">
 }
 
 @* ************** Content ************** *@
@@ -26,21 +27,50 @@
           <h4 class="mb-1">Adventure starts here 🚀</h4>
           <p class="mb-6">Make your app management easy and fun!</p>
 
-          <form id="formAuthentication" class="mb-6" action="~/" method="POST">
-            <div class="mb-6">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus>
+          <form asp-action="Register" asp-controller="User" class="mb-6">
+            <div class="row mb-6">
+              <div class="col-md-6">
+                <label asp-for="Name" class="form-label">Username</label>
+                <input asp-for="Name" class="form-control" placeholder="Enter your username" autofocus />
+                <span asp-validation-for="Name" class="text-danger"></span>
+              </div>
+              <div class="col-md-6">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+              </div>
             </div>
-            <div class="mb-6">
-              <label for="email" class="form-label">Email</label>
-              <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+            <div class="row mb-6">
+              <div class="col-md-6">
+                <label asp-for="FirstName" class="form-label">First Name</label>
+                <input asp-for="FirstName" class="form-control" placeholder="Enter your first name" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+              </div>
+              <div class="col-md-6">
+                <label asp-for="LastName" class="form-label">Last Name</label>
+                <input asp-for="LastName" class="form-control" placeholder="Enter your last name" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+              </div>
+            </div>
+            <div class="row mb-6">
+              <div class="col-md-6">
+                <label asp-for="Country" class="form-label">Country</label>
+                <input asp-for="Country" class="form-control" placeholder="Enter your country" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+              </div>
+              <div class="col-md-6">
+                <label asp-for="MobileNumber" class="form-label">Mobile Number</label>
+                <input asp-for="MobileNumber" class="form-control" placeholder="Enter your mobile number" />
+                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+              </div>
             </div>
             <div class="mb-6 form-password-toggle">
-              <label class="form-label" for="password">Password</label>
+              <label asp-for="Password" class="form-label">Password</label>
               <div class="input-group input-group-merge">
-                <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                <input asp-for="Password" type="password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
               </div>
+              <span asp-validation-for="Password" class="text-danger"></span>
             </div>
 
             <div class="my-8">
@@ -52,7 +82,7 @@
                 </label>
               </div>
             </div>
-            <button class="btn btn-primary d-grid w-100">
+            <button type="submit" class="btn btn-primary d-grid w-100">
               Sign up
             </button>
           </form>
